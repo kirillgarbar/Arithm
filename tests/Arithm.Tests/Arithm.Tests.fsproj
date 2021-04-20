@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFrameworks>net5.0</TargetFrameworks>
+        <GenerateProgramFile>false</GenerateProgramFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="../../src/Arithm/Arithm.fsproj" />
+    </ItemGroup>
+        <ItemGroup>
+        <Compile Include="TestsMyList.fs" />
+        <Compile Include="TestsBigInt.fs" />
+        <Compile Include="TestsRuFS.fs" />
+        <Compile Include="AssemblyInfo.fs" />
+        <Compile Include="Main.fs" />
+    </ItemGroup>
+        <ItemGroup>
+          <PackageReference Include="Expecto.FsCheck" Version="9.0.2" />
+        </ItemGroup>
+    <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>
+
