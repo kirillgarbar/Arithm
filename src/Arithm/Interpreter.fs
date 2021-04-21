@@ -3,6 +3,8 @@ module Interpreter
 open System.Collections.Generic
 open BigInt
 
+let mutable res = ""
+
 let rec processExpr (vDict:Dictionary<AST.VName,AST.Expression>) expr =
     match expr with
     | AST.Num n -> n
@@ -33,7 +35,7 @@ let processStmt (vDict:Dictionary<AST.VName,AST.Expression>) stmt =
         match data with
         | AST.Num n ->
             let num = bigIntToString n
-            printfn "%s" (if num.[0] = '+' then num.[1..] else num)
+            res <- res + (if num.[0] = '+' then num.[1..] else num) + "\n"
         | _ -> failwith "Num expected"
     | AST.VDecl(v,e) ->
         if vDict.ContainsKey v

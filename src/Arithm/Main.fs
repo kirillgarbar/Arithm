@@ -36,7 +36,10 @@ let main (argv: string array) =
             elif p.Contains(InputString) then results.GetResult InputString
             else failwith "No input code given"
         let ast = parse input
-        if p.Contains(Compute) then Interpreter.run ast
+        if p.Contains(Compute)
+        then
+            Interpreter.run ast
+            printfn "%s" Interpreter.res
         if p.Contains(ToDot) then drawTree ast (results.GetResult ToDot)
     0
     
