@@ -38,8 +38,8 @@ let main (argv: string array) =
         let ast = parse input
         if p.Contains(Compute)
         then
-            Interpreter.run ast
-            printfn "%s" Interpreter.res
+            let _, pD = Interpreter.run ast
+            printfn "%s" pD.["print"]
         if p.Contains(ToDot) then drawTree ast (results.GetResult ToDot)
     0
     

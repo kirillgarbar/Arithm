@@ -3,8 +3,6 @@ module Interpreter
 open System.Collections.Generic
 open BigInt
 
-let mutable res = ""
-
 let rec processExpr (vDict:Dictionary<AST.VName,AST.Expression>) expr =
     match expr with
     | AST.Num n -> n
@@ -24,7 +22,7 @@ let rec processExpr (vDict:Dictionary<AST.VName,AST.Expression>) expr =
     | AST.Abs x -> abs (processExpr vDict x)
     | AST.Bin x -> toBinary (processExpr vDict x)
 
-let processStmt (vDict:Dictionary<AST.VName,AST.Expression>) stmt =
+let processStmt (vDict:Dictionary<AST.VName,AST.Expression>) (pDict:Dictionary<string,string>) stmt =
     match stmt with
     | AST.Print v ->
         let data =
@@ -35,17 +33,19 @@ let processStmt (vDict:Dictionary<AST.VName,AST.Expression>) stmt =
         match data with
         | AST.Num n ->
             let num = bigIntToString n
-            res <- res + (if num.[0] = '+' then num.[1..] else num) + "\n"
+            pDict.["print"] <- (pDict.["print"] + (if num.[0] = '+' then num.[1..] else num) + "\n")
         | _ -> failwith "Num expected"
     | AST.VDecl(v,e) ->
         if vDict.ContainsKey v
         then vDict.[v] <- AST.Num (processExpr vDict e)
         else vDict.Add(v, AST.Num (processExpr vDict e))
-    vDict
+    vDict, pDict
 
 let run ast =
     let vDict = Dictionary<_,_>()
-    ast |> List.fold processStmt vDict |> ignore
+    let pDict = Dictionary<_,_>()
+    pDict.Add("print", "")
+    List.fold (fun (d1, d2) stmt -> processStmt d1 d2 stmt) (vDict, pDict) ast
 
 let calculate (ast:AST.Stmt list) =
     match ast.[0] with
