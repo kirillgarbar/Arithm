@@ -1,7 +1,7 @@
 # Arithm
 
-Arithmetic expression interpreter
-
+Arithm is a tool which contains an interpreter for the simple programming language mainly designed to compute arithmetic expressions.
+It can be used both for developers and users.
 ---
 
 ## Builds
