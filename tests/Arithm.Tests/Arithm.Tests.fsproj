@@ -11,7 +11,8 @@
         <ItemGroup>
         <Compile Include="TestsMyList.fs" />
         <Compile Include="TestsBigInt.fs" />
-        <Compile Include="TestsRuFS.fs" />
+        <Compile Include="TestsArithm.fs" />
+
         <Compile Include="AssemblyInfo.fs" />
         <Compile Include="Main.fs" />
     </ItemGroup>

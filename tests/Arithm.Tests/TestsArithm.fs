@@ -12,7 +12,8 @@ let pr1 =
     print y
     print z
     """
-Interpreter.run (Main.parse pr1)
+let _, pD = Interpreter.run (Main.parse pr1)
+printfn "%s" pD.["print"]
 printfn "Expected \n-2\n7\n19"
 
 // tests for calculating an expression
