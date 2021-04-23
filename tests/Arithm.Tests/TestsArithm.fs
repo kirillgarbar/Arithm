@@ -1,6 +1,7 @@
 module TestsRuFS
 
 open Expecto
+open Arithm
 // tests for printing and variable declaring
 let pr1 =
 

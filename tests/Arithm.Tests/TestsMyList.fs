@@ -1,6 +1,6 @@
 module TestsMyList
 
-open MyList
+open Arithm.MyList
 open Expecto
 
 let genRandomList count =
@@ -17,7 +17,7 @@ let tests =
         testProperty "fold test" <| fun a ->
             let list = genRandomList a |> List.map (string) 
             let str = List.fold (+) "" list
-            Expect.sequenceEqual (MyList.fold (+) "" (listToMyList list)) (str) "fold =/= List.fold"
+            Expect.sequenceEqual (Arithm.MyList.fold (+) "" (listToMyList list)) (str) "fold =/= List.fold"
         testProperty "len test" <| fun a ->
             let list = genRandomList a
             Expect.equal (list.Length) (len (listToMyList list)) ".Length =/= length"

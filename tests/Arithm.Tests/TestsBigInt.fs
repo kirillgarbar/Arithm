@@ -1,7 +1,7 @@
 module TestsBigInt
 open Expecto
-open MyList
-open BigInt
+open Arithm.MyList
+open Arithm.BigInt
 open System.Numerics
 
 let genRandomList l =
