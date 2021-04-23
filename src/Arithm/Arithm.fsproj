@@ -7,6 +7,8 @@
     <Title>Arithm</Title>
     <Description>Arithm does the thing!</Description>
     <OutputType>Exe</OutputType>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Namespace added</PackageReleaseNotes>
 
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
