@@ -23,7 +23,7 @@ type token =
   | MUL
   | SUB
   | SUM
-  | NUM of (BigInt.BigInt)
+  | NUM of (Arithm.BigInt.BigInt)
 // This type is used to give symbolic names to token indexes, useful for error messages
 type tokenId = 
     | TOKEN_EOF
@@ -180,7 +180,7 @@ let _fsyacc_immediateActions = [|65535us; 49152us; 65535us; 16386us; 65535us; 16
 let _fsyacc_reductions ()  =    [| 
 # 181 "Parser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
-            let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data :  AST.Program )) in
+            let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data :  Arithm.AST.Program )) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
@@ -197,11 +197,11 @@ let _fsyacc_reductions ()  =    [|
                                   [_1]
                    )
 # 25 "Parser.fsy"
-                 :  AST.Program ));
+                 :  Arithm.AST.Program ));
 # 201 "Parser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'stmt)) in
-            let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data :  AST.Program )) in
+            let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data :  Arithm.AST.Program )) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
@@ -209,7 +209,7 @@ let _fsyacc_reductions ()  =    [|
                                         _1 :: _2
                    )
 # 26 "Parser.fsy"
-                 :  AST.Program ));
+                 :  Arithm.AST.Program ));
 # 213 "Parser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'vname)) in
@@ -217,7 +217,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 28 "Parser.fsy"
-                                           AST.Print(_2)
+                                           Arithm.AST.Print(_2)
                    )
 # 28 "Parser.fsy"
                  : 'stmt));
@@ -229,7 +229,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 29 "Parser.fsy"
-                                                 AST.VDecl(_2,_4)
+                                                 Arithm.AST.VDecl(_2,_4)
                    )
 # 29 "Parser.fsy"
                  : 'stmt));
@@ -252,7 +252,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 32 "Parser.fsy"
-                                           AST.Sum(_1, _3)
+                                           Arithm.AST.Sum(_1, _3)
                    )
 # 32 "Parser.fsy"
                  : 'expr));
@@ -264,7 +264,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 33 "Parser.fsy"
-                                           AST.Sub(_1, _3)
+                                           Arithm.AST.Sub(_1, _3)
                    )
 # 33 "Parser.fsy"
                  : 'expr));
@@ -287,7 +287,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 36 "Parser.fsy"
-                                                 AST.Mul(_1, _3)
+                                                 Arithm.AST.Mul(_1, _3)
                    )
 # 36 "Parser.fsy"
                  : 'rexpr));
@@ -299,7 +299,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 37 "Parser.fsy"
-                                                 AST.Div(_1, _3)
+                                                 Arithm.AST.Div(_1, _3)
                    )
 # 37 "Parser.fsy"
                  : 'rexpr));
@@ -311,7 +311,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 38 "Parser.fsy"
-                                                 AST.Rem(_1, _3)
+                                                 Arithm.AST.Rem(_1, _3)
                    )
 # 38 "Parser.fsy"
                  : 'rexpr));
@@ -334,7 +334,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 41 "Parser.fsy"
-                                                 AST.Pow(_1, _3)
+                                                 Arithm.AST.Pow(_1, _3)
                    )
 # 41 "Parser.fsy"
                  : 'baseAndPow));
@@ -356,18 +356,18 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 44 "Parser.fsy"
-                                         AST.Abs _2
+                                         Arithm.AST.Abs _2
                    )
 # 44 "Parser.fsy"
                  : 'power));
 # 363 "Parser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
-            let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : BigInt.BigInt)) in
+            let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Arithm.BigInt.BigInt)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
 # 45 "Parser.fsy"
-                                AST.Num(_1)
+                                Arithm.AST.Num(_1)
                    )
 # 45 "Parser.fsy"
                  : 'power));
@@ -378,7 +378,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 46 "Parser.fsy"
-                                  AST.NVar(_1)
+                                  Arithm.AST.NVar(_1)
                    )
 # 46 "Parser.fsy"
                  : 'power));
@@ -389,7 +389,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 47 "Parser.fsy"
-                                     AST.Bin _2
+                                     Arithm.AST.Bin _2
                    )
 # 47 "Parser.fsy"
                  : 'power));
@@ -400,7 +400,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 49 "Parser.fsy"
-                                   AST.Var(_1)
+                                   Arithm.AST.Var(_1)
                    )
 # 49 "Parser.fsy"
                  : 'vname));
@@ -437,5 +437,5 @@ let tables () : FSharp.Text.Parsing.Tables<_> =
     numTerminals = 19;
     productionToNonTerminalTable = _fsyacc_productionToNonTerminalTable  }
 let engine lexer lexbuf startState = (tables ()).Interpret(lexer, lexbuf, startState)
-let start lexer lexbuf :  AST.Program  =
+let start lexer lexbuf :  Arithm.AST.Program  =
     Microsoft.FSharp.Core.Operators.unbox ((tables ()).Interpret(lexer, lexbuf, 0))
