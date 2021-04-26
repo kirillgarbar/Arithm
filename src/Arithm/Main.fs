@@ -40,7 +40,7 @@ module Main =
             let ast = parse input
             if p.Contains(Compute)
             then
-                let _, pD = Interpreter.run ast
+                let _, _, pD = Interpreter.run ast
                 printfn "%s" pD.["print"]
             if p.Contains(ToDot) then drawTree ast (results.GetResult ToDot)
         0
