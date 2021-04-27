@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Language guide - Arithm</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Language guide";
+    var mkdocs_page_input_path = "lang.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Arithm</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Language guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#code-structure">Code structure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#defining-an-expression">Defining an expression</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Arithm</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Language guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="language-guide">Language guide</h1>
+<p>RuFS uses simple programming language to define complex arithmetic expressions.</p>
+<h2 id="code-structure">Code structure</h2>
+<p>Each arithmetic expression is defined as variable which can be used in other expressions. Result of each expression can be printed in console</p>
+<h2 id="defining-an-expression">Defining an expression</h2>
+<ul>
+<li>Variables are declared by this construction </li>
+</ul>
+<h1 id="_1"></h1>
+<pre><code>let &lt;vname&gt; = &lt;expression&gt;
+</code></pre>
+<ul>
+<li><code>&lt;vname&gt;</code> starts with a Latin character, which can be followed by numbers or other letters</li>
+<li><code>&lt;expression&gt;</code> consists of numbers, other variables and arithmetic operators such as <code>+, -, *, /, %, ^, ~, (, ), |</code></li>
+</ul>
+<h2 id="operators">Operators</h2>
+<ul>
+<li><code>+</code> - sum</li>
+<li><code>-</code> - subtract; also acts as unary minus if immediatly followed by number</li>
+<li><code>*</code> - multiply</li>
+<li><code>/</code> - integer division</li>
+<li><code>%</code> - remainder division</li>
+<li><code>^</code> - power</li>
+<li><code>~</code> - converts a number to its binary representation</li>
+<li><code>(</code>, <code>)</code> - brackets to control operation priority</li>
+<li><code>|</code> - acts as brackets while returning an absolute value of expression</li>
+</ul>
+<h2 id="functions">Functions</h2>
+<p>The only function supported in this language is </p>
+<h1 id="_2"></h1>
+<pre><code>print &lt;vname&gt;
+</code></pre>
+<p>which prints a result of arithmetic expression corresponding to a given variable</p>
+<h2 id="code-example">Code example</h2>
+<pre><code>let x = |12 - 7 * 8| / -3
+let y = 8 - x
+print y
+</code></pre>
+<ul>
+<li>All code can be written in a single string</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../usage/" class="btn btn-neutral" title="Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../usage/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
