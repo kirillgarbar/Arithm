@@ -56,11 +56,19 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="usage/">Usage</a>
+                    <li class="toctree-l1"><a class="reference internal" href="interpreter/">Interpreter</a>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="lang/">Language guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="bigint/">BigInt</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="mylist/">MyList</a>
                     </li>
                 </ul>
       </div>
@@ -96,20 +104,20 @@
             <div class="section">
               
                 <h1 id="arithm">Arithm</h1>
-<p>Arithm is a library which contains an interpreter for the simple programming language mainly designed to compute arithmetic expressions.</p>
+<p>Arithm contains an interpreter for the simple programming language mainly designed to compute arithmetic expressions, long arithmetic and non-empty list libraries.</p>
 <h2 id="installing">Installing</h2>
 <p>You can install the package with dotnet by following this steps:</p>
 <ul>
 <li>Add a source in your NuGet.config file</li>
 </ul>
 <h1 id="_1"></h1>
-<pre><code>dotnet nuget add source https://nuget.pkg.github.com/kirillgarbar/index.json
+<pre><code>dotnet nuget add source "https://nuget.pkg.github.com/kirillgarbar/index.json"
 </code></pre>
 <ul>
 <li>Authorize with your github token</li>
 </ul>
 <h1 id="_2"></h1>
-<pre><code>paket config add-token https://nuget.pkg.github.com/kirillgarbar/index.json &lt;token&gt;
+<pre><code>paket config add-token "https://nuget.pkg.github.com/kirillgarbar/index.json" &lt;token&gt;
 </code></pre>
 <ul>
 <li>Install the package</li>
@@ -124,7 +132,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="usage/" class="btn btn-neutral float-right" title="Usage">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="interpreter/" class="btn btn-neutral float-right" title="Interpreter">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -152,7 +160,7 @@
       
       
       
-        <span style="margin-left: 15px"><a href="usage/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="interpreter/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
@@ -170,5 +178,5 @@
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-04-27 14:30:00.824849+00:00
+Build Date UTC : 2021-04-30 18:13:53.154503+00:00
 -->
