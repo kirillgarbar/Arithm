@@ -13,3 +13,7 @@ GitHub Actions |
 ## Documentation
 
 The [docs](https://kirillgarbar.github.io/Arithm/) contains an overview of the tool and how to use it
+
+## Requirements
+
+* .NET 5.0 or greater
