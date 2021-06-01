@@ -12,9 +12,9 @@ Each arithmetic expression is defined as variable which can be used in other exp
 There are only two statements supported in this language: 
 
 *	`print <vname>`
-*	`let <vname> = <expression>`
+*	`<vname> = <expression>`
 
-`print` prints a result of arithmetic expression corresponding to a given variable and `let` defines a variable
+`print` prints a result of arithmetic expression corresponding to a given variable and the other one defines a variable
 
 * `<vname>` starts with a Latin character, which can be followed by numbers or other letters
 * `<expression>` consists of numbers, other variables and arithmetic operators such as `+, -, *, /, %, ^, ~, (, ), |`
@@ -50,8 +50,8 @@ This is a list of available operators and corresponding expressions:
 
 ## Code example
 
-	let x = |12 - 7 * 8| / -3
-	let y = 8 - x
+	x = |12 - 7 * 8| / -3
+	y = 8 - x
 	print y
 
 * All code can be written in a single string
