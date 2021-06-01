@@ -27,6 +27,7 @@ start: stmt {[$1]}
 
 stmt: KW_PRINT vname {Arithm.AST.Print($2)}
     | KW_LET vname EQ expr {Arithm.AST.VDecl($2,$4)}
+    | vname {failwith "parse error"}
 
 expr: rexpr {$1}
     | expr SUM rexpr {Arithm.AST.Sum($1, $3)}
