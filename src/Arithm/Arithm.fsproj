@@ -5,9 +5,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <Title>Arithm</Title>
-    <Description>Arithm does the thing!</Description>
+    <Description>This tool contains an interpreter for the simple programming language mainly designed to compute arithmetic expressions. It also has a long arithmetic and non-empty list libraries. While all three modules can be used for developers, there are console interface of interpreter for users.</Description>
     <OutputType>Exe</OutputType>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <PackageReleaseNotes>Namespace added</PackageReleaseNotes>
 
   </PropertyGroup>

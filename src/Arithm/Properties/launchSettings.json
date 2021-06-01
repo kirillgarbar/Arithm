@@ -1,8 +1,7 @@
 {
   "profiles": {
     "Arithm": {
-      "commandName": "Project",
-      "commandLineArgs": "--inputstring \"let x = 5 print x\" --compute"
+      "commandName": "Project"
     }
   }
 }

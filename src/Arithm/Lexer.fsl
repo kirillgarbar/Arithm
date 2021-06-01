@@ -33,7 +33,6 @@ rule tokenStream = parse
 | '%' { Parser.REM }
 | '^' { Parser.POW }
 | '~' { Parser.BIN }
-| "let" { Parser.KW_LET }
 | "print" { Parser.KW_PRINT }
 | vname { Parser.VNAME(lexeme lexbuf) }
 // --------------------------

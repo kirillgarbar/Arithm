@@ -38,9 +38,17 @@ module Interpreter =
                 pDict.["print"] <- (pDict.["print"] + (if num.[0] = '+' then num.[1..] else num) + "\n")
             | _ -> failwith "Num expected"
         | AST.VDecl(v,e) ->
-            if vDict.ContainsKey v
-            then vDict.[v] <- AST.Num (processExpr vDict e)
-            else vDict.Add(v, AST.Num (processExpr vDict e))
+            match e with
+            | AST.Num n ->
+                let num = bigIntToString n
+                pDict.["print"] <- (pDict.["print"] + (if num.[0] = '+' then num.[1..] else num) + "\n")
+                if vDict.ContainsKey v
+                then vDict.[v] <- AST.Num (processExpr vDict e)
+                else vDict.Add(v, AST.Num (processExpr vDict e))
+            | _ ->
+                if vDict.ContainsKey v
+                then vDict.[v] <- AST.Num (processExpr vDict e)
+                else vDict.Add(v, AST.Num (processExpr vDict e))
         vDict, pDict
 
     let run ast =

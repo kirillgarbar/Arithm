@@ -7,7 +7,6 @@ type token =
   | LBR
   | EQ
   | KW_PRINT
-  | KW_LET
   | VNAME of (string)
   | BIN
   | POW
@@ -24,7 +23,6 @@ type tokenId =
     | TOKEN_LBR
     | TOKEN_EQ
     | TOKEN_KW_PRINT
-    | TOKEN_KW_LET
     | TOKEN_VNAME
     | TOKEN_BIN
     | TOKEN_POW
@@ -39,6 +37,7 @@ type tokenId =
 type nonTerminalId = 
     | NONTERM__startstart
     | NONTERM_start
+    | NONTERM_stmtAnalyser
     | NONTERM_stmt
     | NONTERM_expr
     | NONTERM_rexpr
