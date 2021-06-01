@@ -35,3 +35,19 @@ The [docs](https://kirillgarbar.github.io/Arithm/) contains an overview of the t
 ## Requirements
 
 * .NET 5.0 or greater
+
+## Directory structure
+
+```
+Arithm
+├── .config - dotnet tools
+├── .github - GitHub Actions CI setup 
+├── docs - site with documentation
+├── docsSrc - documentation files in .md format
+├── src - main code of the project
+│   └── Arithm - Interpreter, MyList and BigInt libraries
+├── tests - tests
+│   └── Arithm.tests - tests for all modules
+├── fsharplint.json - linter config
+└── Arithm.sln - main solution file
+```

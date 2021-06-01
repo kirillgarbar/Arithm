@@ -124,9 +124,9 @@ You can also get a dot file which contains a syntax tree by using <code>DrawTree
 </ul>
 <h3 id="example">Example:</h3>
 <h1 id="_1"></h1>
-<pre><code>let x = "let x = 5 print x"
-let ast = parse x
-let _, _, pDict = Interpreter.run ast
+<pre><code>x = "let x = 5 print x"
+ast = parse x
+_, _, pDict = Interpreter.run ast
 printfn "%s" pDict.["print"]
 </code></pre>
 <p>Given code prints "5" into console</p>
