@@ -9,6 +9,7 @@
 %token POW
 %token BIN
 %token <string> VNAME
+%token KW_LET
 %token KW_PRINT
 %token EQ
 %token LBR
@@ -24,11 +25,9 @@
 start: stmt {[$1]}
      | stmt start {$1 :: $2}
 
-stmtAnalyser: stmt {$1}
-    
 stmt: KW_PRINT vname {Arithm.AST.Print($2)}
-    | vname EQ expr {Arithm.AST.VDecl($1,$3)}  
-    
+    | KW_LET vname EQ expr {Arithm.AST.VDecl($2,$4)}
+
 expr: rexpr {$1}
     | expr SUM rexpr {Arithm.AST.Sum($1, $3)}
     | expr SUB rexpr {Arithm.AST.Sub($1, $3)}

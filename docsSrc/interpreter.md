@@ -18,7 +18,7 @@ You can also get a dot file which contains a syntax tree by using `DrawTree.draw
 
 ### Example:
 #
-	let x = "x = 5 print x"
+	let x = "let x = 5 print x"
 	let ast = parse x
 	let _, _, pDict = Interpreter.run ast
 	printfn "%s" pDict.["print"]
