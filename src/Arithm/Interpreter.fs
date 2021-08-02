@@ -4,6 +4,7 @@ module Interpreter =
 
     open System.Collections.Generic
     open BigInt
+    open FSharp.Text.Lexing
 
     let rec processExpr (vDict:Dictionary<AST.VName,AST.Expression>) expr =
         match expr with
@@ -60,5 +61,10 @@ module Interpreter =
         | AST.VDecl (_, e) -> processExpr (Dictionary<_,_>()) e
         | _ -> failwith "unexpected statement"
 
-
+    let parse text =
+        let lexbuf = LexBuffer<char>.FromString text
+        let parsed = Parser.start Lexer.tokenStream lexbuf
+        parsed
+    
+    
     

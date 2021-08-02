@@ -7,8 +7,10 @@
     <Title>Arithm</Title>
     <Description>This tool contains an interpreter for the simple programming language mainly designed to compute arithmetic expressions. It also has a long arithmetic and non-empty list libraries. While all three modules can be used for developers, there are console interface of interpreter for users.</Description>
     <OutputType>Exe</OutputType>
-    <Version>1.0.4</Version>
-    <PackageReleaseNotes>Namespace added</PackageReleaseNotes>
+    <Version>1.0.5</Version>
+    <PackageReleaseNotes>Better parser</PackageReleaseNotes>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
 
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
