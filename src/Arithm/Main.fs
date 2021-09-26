@@ -30,11 +30,11 @@ module Main =
                 if p.Contains(InputFile) then System.IO.File.ReadAllText (results.GetResult InputFile)
                 elif p.Contains(InputString) then results.GetResult InputString
                 else failwith "No input code given"
-            let ast = Interpreter.parse input
+            let ast = Lexer.parse input
             if p.Contains(Compute)
             then
-                let _, _, pD = Interpreter.run ast
-                printfn "%s" pD.["print"]
+                let ps = Interpreter.runPrint ast
+                printfn "%s" ps
             if p.Contains(ToDot) then drawTree ast (results.GetResult ToDot)
         0
     
