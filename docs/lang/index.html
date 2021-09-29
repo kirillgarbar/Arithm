@@ -79,6 +79,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../mylist/">MyList</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../structure/">Structure</a>
+                    </li>
+                </ul>
       </div>
     </div>
     </nav>
@@ -120,9 +124,9 @@ Each arithmetic expression is defined as variable which can be used in other exp
 <p>There are only two statements supported in this language: </p>
 <ul>
 <li><code>print &lt;vname&gt;</code></li>
-<li><code>let &lt;vname&gt; = &lt;expression&gt;</code></li>
+<li><code>&lt;vname&gt; = &lt;expression&gt;</code></li>
 </ul>
-<p><code>print</code> prints a result of arithmetic expression corresponding to a given variable and <code>let</code> defines a variable</p>
+<p><code>print</code> prints a result of arithmetic expression corresponding to a given variable and the other one defines a variable</p>
 <ul>
 <li><code>&lt;vname&gt;</code> starts with a Latin character, which can be followed by numbers or other letters</li>
 <li><code>&lt;expression&gt;</code> consists of numbers, other variables and arithmetic operators such as <code>+, -, *, /, %, ^, ~, (, ), |</code></li>
@@ -155,8 +159,8 @@ Each arithmetic expression is defined as variable which can be used in other exp
 <li><code>|</code> - acts as brackets while returning an absolute value of expression <code>Abs</code></li>
 </ul>
 <h2 id="code-example">Code example</h2>
-<pre><code>let x = |12 - 7 * 8| / -3
-let y = 8 - x
+<pre><code>x = |12 - 7 * 8| / -3
+y = 8 - x
 print y
 </code></pre>
 <ul>
