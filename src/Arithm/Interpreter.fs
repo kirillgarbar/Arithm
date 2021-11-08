@@ -4,7 +4,10 @@ module Interpreter =
 
     open System.Collections.Generic
     open BigInt
-    open FSharp.Text.Lexing
+
+    let private newDataToConsole = Event<string>()
+
+    let printed = newDataToConsole.Publish
 
     type Dicts = { VariablesDictionary: Dictionary<string, string>; InterpretedDictionary: Dictionary<AST.VName, AST.Expression> }
 
@@ -38,7 +41,9 @@ module Interpreter =
             match data with
             | AST.Num n ->
                 let num = bigIntToString n
-                vDict, printString + (if num.[0] = '+' then num.[1..] else num) + "\n"
+                let str = (if num.[0] = '+' then num.[1..] else num) + "\n"
+                newDataToConsole.Trigger str
+                vDict, printString + str
             | _ -> failwith "Num expected"
         | AST.VDecl(v,e) ->
             if vDict.ContainsKey v
