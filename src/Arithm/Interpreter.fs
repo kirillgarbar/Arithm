@@ -4,7 +4,12 @@ module Interpreter =
 
     open System.Collections.Generic
     open BigInt
-    open FSharp.Text.Lexing
+
+    let private newDataToConsole = Event<string>()
+
+    let printed = newDataToConsole.Publish
+
+    type Dicts = { VariablesDictionary: Dictionary<string, string>; InterpretedDictionary: Dictionary<AST.VName, AST.Expression> }
 
     let rec processExpr (vDict:Dictionary<AST.VName,AST.Expression>) expr =
         match expr with
@@ -25,7 +30,7 @@ module Interpreter =
         | AST.Abs x -> abs (processExpr vDict x)
         | AST.Bin x -> toBinary (processExpr vDict x)
 
-    let processStmt (vDict:Dictionary<AST.VName,AST.Expression>) (pDict:Dictionary<string,string>) stmt =
+    let processStmt (vDict:Dictionary<AST.VName,AST.Expression>) printString stmt =
         match stmt with
         | AST.Print v ->
             let data =
@@ -36,35 +41,40 @@ module Interpreter =
             match data with
             | AST.Num n ->
                 let num = bigIntToString n
-                pDict.["print"] <- (pDict.["print"] + (if num.[0] = '+' then num.[1..] else num) + "\n")
+                let str = (if num.[0] = '+' then num.[1..] else num) + "\n"
+                newDataToConsole.Trigger str
+                vDict, printString + str
             | _ -> failwith "Num expected"
         | AST.VDecl(v,e) ->
             if vDict.ContainsKey v
             then vDict.[v] <- AST.Num (processExpr vDict e)
             else vDict.Add(v, AST.Num (processExpr vDict e))
-        vDict, pDict
+            vDict, printString
 
-    let run ast =
+    let runVariables (startDicts: Dicts) ast =
+        let startDict = startDicts.VariablesDictionary
+        let variableDict = startDicts.InterpretedDictionary
+        let vD, _ = List.fold (fun (d1, ps) stmt -> processStmt d1 ps stmt) (variableDict, "") ast
+        for i in vD.Keys do
+            match vD.[i] with
+            | AST.Num n ->
+                match i with
+                | AST.Var k -> startDict.[k] <- bigIntToString n
+            | _ -> failwith "impossible case"
+        let dicts = { VariablesDictionary = startDict; InterpretedDictionary = vD }
+        dicts
+
+    let runPrint ast =
         let vDict = Dictionary<_,_>()
-        let pDict = Dictionary<_,_>()
         let varDict = Dictionary<_,_>()
-        pDict.Add("print", "")
-        let vD, pD = List.fold (fun (d1, d2) stmt -> processStmt d1 d2 stmt) (vDict, pDict) ast
+        let vD, printString = List.fold (fun (d1, ps) stmt -> processStmt d1 ps stmt) (vDict, "") ast
         for i in vD.Keys do
             match vD.[i] with
             | AST.Num n -> varDict.[string i] <- bigIntToString n
             | _ -> failwith "impossible case"
-        vD, varDict, pDict
+        printString
 
     let calculate (ast:AST.Stmt list) =
         match ast.[0] with
         | AST.VDecl (_, e) -> processExpr (Dictionary<_,_>()) e
         | _ -> failwith "unexpected statement"
-
-    let parse text =
-        let lexbuf = LexBuffer<char>.FromString text
-        let parsed = Parser.start Lexer.tokenStream lexbuf
-        parsed
-    
-    
-    
